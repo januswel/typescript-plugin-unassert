@@ -27,13 +27,16 @@ jobs:
           command: |
             yarn
             yarn build
-            cd example && yarn build
+            cd example
+            yarn
+            yarn build
       - save_cache:
           key: v1-dependencies-{{ .Revision }}-{{ checksum "./yarn.lock" }}
           paths:
             - node_modules
             - dist
             - example/node_modules
+            - example/dist
   test:
     executor: node-lts
     steps:
