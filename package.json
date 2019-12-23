@@ -9,7 +9,9 @@
   "scripts": {
     "build": "tsc",
     "prebuild": "rm -rf dist",
-    "type-check": "tsc --noEmit"
+    "type-check": "tsc --noEmit",
+    "test": "bin/test.sh",
+    "pretest": "yarn build && cd example && yarn build"
   },
   "devDependencies": {
     "prettier": "1.19.1",
