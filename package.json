@@ -4,7 +4,13 @@
   "main": "index.js",
   "author": "Takagi Kensuke <janus.wel.3@gmail.com>",
   "license": "MIT",
+  "scripts": {
+    "build": "tsc",
+    "prebuild": "rm -rf dist",
+    "type-check": "tsc --noEmit"
+  },
   "devDependencies": {
-    "prettier": "1.19.1"
+    "prettier": "1.19.1",
+    "typescript": "3.7.4"
   }
 }
