@@ -24,9 +24,9 @@ jobs:
     steps:
       - setup
       - run:
-        command: |
-          yarn
-          yarn build
+          command: |
+            yarn
+            yarn build
       - save_cache:
           paths:
             - node_modules
