@@ -1,0 +1,7 @@
+{
+  "name": "typescript-plugin-unassert",
+  "version": "1.0.0",
+  "main": "index.js",
+  "author": "Takagi Kensuke <janus.wel.3@gmail.com>",
+  "license": "MIT"
+}
