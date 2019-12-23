@@ -1,0 +1,51 @@
+---
+# refer: https://circleci.com/docs/2.0/language-javascript/
+version: 2.1
+
+executors:
+  node-lts:
+    docker:
+      - image: circleci/node:12.14
+    working_directory: ~/repo
+
+commands:
+  setup:
+    description: setup commands for each jobs
+    steps:
+      - checkout
+      - restore_cache:
+          keys:
+            - v1-dependencies-{{ .Revision }}-{{ checksum "./yarn.lock" }}
+            - v1-dependencies-
+
+jobs:
+  build:
+    executor: node-lts
+    steps:
+      - setup
+      - run:
+        command: |
+          yarn
+          yarn build
+      - save_cache:
+          paths:
+            - node_modules
+            - dist
+            - v1-dependencies-{{ .Revision }}-{{ checksum "./yarn.lock" }}
+  test:
+    executor: node-lts
+    steps:
+      - setup
+      - run:
+          command: |
+            yarn type-check
+            yarn test
+
+workflows:
+  version: 2
+  test-all:
+    jobs:
+      - build
+      - test:
+          requires:
+            - build
