@@ -1,9 +1,11 @@
 {
   "name": "typescript-plugin-unassert",
   "version": "1.0.0",
-  "main": "index.js",
   "author": "Takagi Kensuke <janus.wel.3@gmail.com>",
+  "description": "TypeScriput plugin to remove \"assert\" like function calls",
   "license": "MIT",
+  "main": "dist/index.js",
+  "typings": "dist/index.d.ts",
   "scripts": {
     "build": "tsc",
     "prebuild": "rm -rf dist",
