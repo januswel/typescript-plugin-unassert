@@ -2,6 +2,12 @@
 
 [![CircleCI](https://circleci.com/gh/januswel/typescript-plugin-unassert.svg?style=svg)](https://circleci.com/gh/januswel/typescript-plugin-unassert)
 
+## Motivation
+
+[Assertion Functions](https://www.typescriptlang.org/docs/handbook/release-notes/typescript-3-7.html#assertion-functions) is available from TypeScript 3.7, but assertion functions are called and processed always, even in production codes.
+
+This plugin eliminates all of `assert` and `assertIsDefined` calls, that are introduced at the official page.
+
 ## Getting Started
 
 ```console
